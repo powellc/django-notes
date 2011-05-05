@@ -4,7 +4,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
-from myutils.models import MarkupMixin 
+from markup_mixin.models import MarkupMixin 
 from django_extensions.db.models import TitleSlugDescriptionModel, TimeStampedModel
 
 from notes.managers import PublicManager
