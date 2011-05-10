@@ -38,6 +38,7 @@ class Note(MarkupMixin, TimeStampedModel):
     content_object = generic.GenericForeignKey("content_type", "object_id")
 
     public_objects = PublicManager()
+    objects = models.Manager()
 
     class Meta:
         verbose_name=_('Note')
