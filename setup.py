@@ -8,7 +8,7 @@ setup(
     install_requires = [],
 
     description='A reusable applicaton to add arbitrary notes to a model.',
-    long_description=open('README.md').read(),
+    long_description=open('README').read(),
 
     author='Colin Powell',
     author_email='colin@onecardinal.com',
