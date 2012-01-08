@@ -9,6 +9,6 @@ from notes.views import NoteList, NoteDetail
 urlpatterns = patterns('',
     url(r'^$', NoteList.as_view(), name='notes-index'),
     url(r'^add/$', login_required(CreateView.as_view(model=Note), name='notes-create')),
-    url('^(?P<note_id>\d+)/$', NoteDetail.as_view(), name='notes-view'),
-    url('^(?P<note_id>\d+)/edit/$', login_required(EditView.as_view(model=Note)), name='notes-edit'),
+    url('^(?P<pk>\d+)/$', NoteDetail.as_view(), name='notes-view'),
+    url('^(?P<pk>\d+)/edit/$', login_required(EditView.as_view(model=Note)), name='notes-edit'),
 )

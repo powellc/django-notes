@@ -47,5 +47,8 @@ class Note(MarkupMixin, TimeStampedModel):
     class MarkupOptions:
         rendered_field = 'rendered_content'
         source_field = 'content'
-        
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('notes-view', (), { 'pk': self.pk})
 
