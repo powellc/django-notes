@@ -6,3 +6,4 @@ class NoteInline(generic.GenericTabularInline):
     model = Note
 
 admin.site.register(Topic)
+admin.site.register(Note)

@@ -1,2 +1,3 @@
-include README
-recursive-include notes/templatetags * 
+include README.md
+recursive-include notes/templatetags *.py
+recursive-include notes/templates *.html
