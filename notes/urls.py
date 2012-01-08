@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     url(r'^$', NoteList.as_view(), name='notes-index'),
     url('^topics/$', ListView.as_view(model=Topic), name='notes-topic-list'),
     url('^topics/(?P<slug>[+\w]+)/$', DetailView.as_view(model=Topic), name='notes-topic-detail'),
-    url(r'^add/$', login_required(CreateView.as_view(model=Note), name='notes-create')),
+    url(r'^add/$', login_required(CreateView.as_view(model=Note)), name='notes-create'),
     url('^(?P<pk>\d+)/$', NoteDetail.as_view(), name='notes-view'),
     url('^(?P<pk>\d+)/edit/$', login_required(UpdateView.as_view(model=Note)), name='notes-edit'),
 )
