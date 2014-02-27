@@ -4,7 +4,6 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
-from markup_mixin.models import MarkupMixin 
 from django_extensions.db.models import TitleSlugDescriptionModel, TimeStampedModel
 
 from notes.managers import PublicManager
@@ -26,7 +25,7 @@ class Topic(TitleSlugDescriptionModel, TimeStampedModel):
         return ('notes-topic-detail', (), { 'slug': self.slug})
 
 
-class Note(MarkupMixin, TimeStampedModel):
+class Note(TimeStampedModel):
     """
     Note model class.
 
@@ -35,7 +34,6 @@ class Note(MarkupMixin, TimeStampedModel):
     topic=models.ForeignKey(Topic)
     date=models.DateField(_('Date'), default=datetime.now())
     content=models.TextField(_('Content'))
-    rendered_content=models.TextField(_('Rendered content'), blank=True, null=True, editable=False)
     public=models.BooleanField(_('Public'), default=True)
     author=models.ForeignKey(User, blank=True, null=True)
     content_type = models.ForeignKey(ContentType)
@@ -48,10 +46,6 @@ class Note(MarkupMixin, TimeStampedModel):
     class Meta:
         verbose_name=_('Note')
         verbose_name_plural=_('Notes')
-
-    class MarkupOptions:
-        rendered_field = 'rendered_content'
-        source_field = 'content'
 
     @models.permalink
     def get_absolute_url(self):
