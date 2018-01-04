@@ -1,7 +1,7 @@
 from datetime import *
 from django.db import models
 from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes import generic
+from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 from django_extensions.db.models import TitleSlugDescriptionModel, TimeStampedModel
@@ -38,7 +38,7 @@ class Note(TimeStampedModel):
     author=models.ForeignKey(User, blank=True, null=True)
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()
-    content_object = generic.GenericForeignKey("content_type", "object_id")
+    content_object = GenericForeignKey("content_type", "object_id")
 
     public_objects = PublicManager()
     objects = models.Manager()
