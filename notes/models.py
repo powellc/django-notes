@@ -32,7 +32,7 @@ class Note(TimeStampedModel):
     A simple model to handle adding arbitrary numbers of notes to an animal profile.
     """
     topic=models.ForeignKey(Topic)
-    date=models.DateField(_('Date'), default=datetime.now())
+    date=models.DateField(_('Date'), default=date.today)
     content=models.TextField(_('Content'))
     public=models.BooleanField(_('Public'), default=True)
     author=models.ForeignKey(User, blank=True, null=True)
