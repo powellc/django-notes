@@ -1,8 +1,8 @@
 from notes.models import Note, Topic
 from django.contrib import admin
-from django.contrib.contenttypes import generic
+from django.contrib.contenttypes.admin import GenericTabularInline
 
-class NoteInline(generic.GenericTabularInline):
+class NoteInline(GenericTabularInline):
     model = Note
 
 admin.site.register(Topic)
